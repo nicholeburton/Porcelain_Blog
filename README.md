@@ -11,5 +11,6 @@ A very quick sample of what a blog post could look like.
 - Front page. Likely to be a super simple list of articles. It's all we need.
 - Gotta get that header working.
 - Gotta review and clean up the code when it's not 6am.
+- Need to fix hanging numbers / bullets when responsive. I've got a feeling I'll have to de-hang them. Typography life chose me.
 
 This dude is fully responsive. Lock n' load.
