@@ -1,0 +1,378 @@
+<!--
+things we need:
+	- Front page w/ list of blog items
+	- Footer
+	- Blog Post
+	  - Header(s)
+	  - Blocks of Text
+	  - img (with captions?)
+	  - blockquote
+	  - Lists (numbered and otherwise)
+
+	  header1
+	  about <porcelain logo> contact
+	  about == blurb
+	  countact == twitter accounts and procelain games' blurb.
+
+	  blog post
+	  header1
+	  hero image (optional, relative to width of page.)
+	  title (with date + poster)
+	  images inline with text.
+	  
+	  blog footer (optional)
+	  A simple list. (just title + author.)
+
+	  Front page
+	  A simple list.
+
+--> 
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+		<style>
+			*{
+				box-sizing: border-box;
+				-webkit-font-smoothing:antialiased;
+				text-rendering: optimizeLegibility;
+				margin: 0;
+				padding: 0;
+			}
+			/*typography*/
+
+			body{
+				font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+				font-size: 21px;
+				color: #676767;
+			}
+
+			p, h4{
+				font-size: 0.9em;
+				line-height: 2.2em;
+				margin-bottom: 1em;
+				max-width: 760px;
+			}
+
+			h3, h2, h1{	
+				color: #000000;
+			}
+
+			h3{
+				font-size: 1.17em;
+				line-height: 1.33333333em;
+				font-weight: 400;
+			}
+
+			h2{
+				font-size: 1.9047619048em;
+				line-height: 1.17;
+				margin-bottom: 1rem;
+			}
+
+			h1{
+				font-size: 3.3333333333em;
+				line-height: 1.1714285714em;
+				max-width: 880px;
+				margin-bottom: 0.2285714286em;
+			//	font-weight: 600;
+			}
+
+			a{
+				text-decoration: none;
+				padding-bottom: 2px;
+				color: #0d6ffc;
+			}
+
+			a:hover{
+				border-bottom: 1px solid #0d6ffc;
+			}
+
+			blockquote{
+				font-size: 1.94em; /*40*/
+				line-height: 1.6; /*64*/
+				margin-bottom: 1em;
+				margin-top: 1em;
+				text-align: center;
+				margin-left: -30%;
+				margin-right: -30%;
+			}
+
+			ul, ol{
+				margin-bottom: 1em;
+			}
+
+			ul li, ol li{
+				line-height: 2.2em;
+				margin-bottom: 1em;
+				font-size: 0.9em;
+			}
+
+			.author{
+				margin-bottom: 0;
+				color: #000000;
+			}
+
+			.small{
+				font-size: .7em;
+			}
+
+			.bold{
+				font-weight: bold;
+			}
+
+			.article-list-item{
+				margin-top: 24px;
+				margin-bottom: 24px;
+			}
+
+			/*general*/
+			img{
+				width: 100%;
+				margin-bottom: 1em;
+			}
+
+			.wrap{
+				width: 33em;
+				max-width: 90%;
+				margin: 0 auto;
+			}
+
+			.main{
+				margin-top: 2em;
+			}
+
+			.suggested{
+				margin-top: 2em;
+				margin-bottom: 2em;
+				border-top: 1px solid #e1e1e1;
+			}
+
+			.hero {
+				width: 95%;
+				margin: 2em auto;
+			}
+
+			.hero img{
+				width: 100%;
+			}
+
+			.img_split{
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+
+			.img_split img{
+				width: 49%;
+			}
+
+			.img_split img:last-child{
+				margin-left: 1%;
+			}
+
+			/*header*/
+			.header{
+				position: relative;
+				width: 100%;
+				max-width: 1340px; /*look into this*/
+				padding: 0 50px;
+				margin: 1em auto 3.125em auto;
+				border-bottom: 1px solid #e1e1e1;
+			//	height: 66px;
+			}
+
+			.header ul{
+				width: 100%;
+				max-width: 33.333%;
+				margin: 0 auto;
+				padding: 0 24px;
+				overflow: auto;
+				list-style: none;
+			}
+
+			.header ul li{
+				width: 33.333%;
+				float: left;
+				padding: 1.51em 0;
+				text-align: center;
+			}
+
+			.header a{
+				color: #000000;
+				font-weight: bold;
+			}
+
+			.header a:hover{
+				border-bottom: 1px solid #000000;
+			}
+
+			/*queries*/
+
+			@media (max-width: 700px) {
+				body {
+				  font-size: 18px;
+				}
+
+				.header{
+					margin: 1em auto;
+				}
+
+				.header ul{
+					min-width: 100%;
+				}
+
+				.img_split img:last-child{
+					margin-left: .5%;
+				}
+			}
+
+			@media (max-width: 1165px){
+				blockquote{
+					margin-right:auto ;
+					margin-left:auto ;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class='header'>
+			<ul>
+				<li>
+					<p class='small'>
+						<a href=''>about</a>
+					</p>
+				</li>
+				<li>
+					<p class='small'>
+						Porcelain logo
+					</p>
+				</li>
+				<li>
+					<p class='small'>
+						<a href=''>contact</a>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class='hero'>
+			<img src='img/mark_being_cool.jpg'/>
+		</div>
+		<div class='wrap main'>
+			<p class='small author'>
+				<span class='bold'>Mark Zhang</span> wrote this article 2 weeks ago
+			</p>
+			<h1>The Story of our First Expo</h1>
+			<p class='small'>Photos by John Chow</p>
+			<p>
+				When I ran across the Playcrafting Boston Expo online, it almost seemed too good to be true. Unlike certain <a target='_blank' href='http://indiemegabooth.com/about/submissions/'>other expos</a>, which can cost thousands of dollars, this one was completely free for presenters.
+			</p>
+			<p>
+				Only one problem: it was a week away. I hurriedly wrote an e-mail to the organizer, and he got back to me the next day.
+			</p>
+			<h2>
+				By a stroke of luck, I was in.
+			</h2>
+			<p>
+				I was pumped to show off <a target='_blank' href='http://www.play-impulse.com'>Impulse</a>. But we had only a few days to prepare, and I had never exhibited a game before.
+			</p>
+
+			<img src='img/pamphlets.jpg'/>
+
+			<p>
+				After the initial excitement wore off, I started reading articles and figuring about what I wanted to get out of the expo. Here are the goals I came up with:
+			</p>
+			<ul>
+				<li>
+					<span class='bold'>Verify that people were excited about Impulse.</span> I needed to validate my concept before devoting more time to it.
+					
+				</li>
+				<li>
+					<span class='bold'>Playtest.</span> This is probably the single most important thing you can get out of an expo. We made sure to nail down what questions we wanted answers, and prepared a short survey.
+				</li>
+				<li>
+					<span class='bold'>Build some buzz around Impulse. </span> We spent quite a bit of time on marketing materials.
+				</li>
+				<li>
+					<span class='bold'>Talk to members of the press</span>I e-mailed the organizer beforehand to see if I could get a press list.
+				</li>
+				<li>
+					<span class='bold'>Meet other developers.</span> You can get valuable tips by chatting with fellow developers. Plus, they're cool people!
+				</li>
+				<li>
+					<span class='bold'>Get practice pitching my game.</span> Being able to quickly sell your game is very important. Attending a small, relatively relaxed expo was excellent practice.
+
+				</li>
+			</ul>
+
+			<img src='img/mark_chatting.jpg'/>
+
+			<p>
+				We only had a few days to get our marketing materials together, and we were starting from scratch. We wanted something memorable, and we toyed around with ideas like stickers and running a high score contest. In the end, Nichole nailed it with a slick pamphlet that folded out into a poster.
+			</p>
+
+			<div class='img_split'>
+				<img src='img/poster1.jpg'>
+				<img src='img/poster2.jpg'>
+			</div>
+
+			<p>
+				We also printed out a 48 x 12 banner which we hung on the tablecloth. Overall, our expenses came out to almost $200. Printing ain't cheap.
+			</p>
+
+			<img src='img/impulse_playtester.jpg'/>
+
+			<p>
+				For our booth we kept the layout simple with two demo stations on opposite ends of the table. We also had a monitor that mirrored one of the demos, allowing spectators to watch people play Impulse. When people weren't playing, we would loop our <a target='_blank' href='https://www.youtube.com/watch?v=ZkQeRA8H__E'>game trailer</a> on the monitor.
+			</p>
+			<blockquote>
+				I was pumped to show off Impulse. But we had only a few days to prepare, and I had never exhibited a game before.
+			</blockquote>
+
+			<p>
+				When the big day came, I was nervous but excited. I arrived an hour early so that I would have time to set up and meet other developers before the event began (like this guy). This also allowed me to snag a booth in a prime location.
+			</p>
+			<p>
+				When the attendees started coming in, the hours flew by. Happily, my booth was never empty, and at one point I even attracted a small crowd. Everyone was very friendly and kind, and the evening was wonderful. I met several game music composers from Berklee and learned that a successful Kickstarter is a great way to get your game Greenlit by Steam.
+			</p>
+
+			<h2>Here are some other things we learned.</h2>
+
+			<ul>
+				<li>
+					People are generally willing to give out their e-mails. I was surprised by how easy it was. Have a sign-up sheet ready.
+				</li>
+				<li>
+					A lot of people will pause at your booth and look. If you don't engage them, many of them will walk away. Prepare something to say to them beforehand. It can be as simple as ‘Hey there, do you want to try out a demo of Impulse?'
+				</li>
+				<li>
+					People were very diligent about filling out our play-testing surveys. It was a very valuable source of feedback.
+				</li>
+			</ul>
+
+			<img src='img/playing_impulse.jpg'/>
+
+			<p>
+				Overall, the response was very positive. Most of our players got very engaged, and a couple of people even said they were ready to buy the game!
+			</p>
+			<p>
+				Attending the expo gave us a huge motivation boost by letting us know that people were excited. We also got a ton of great feedback on our tutorial and initial difficulty curve.
+			</p>
+			<p>
+				Thanks to Playcrafting for an awesome event. Impulse's next appearance will be at Boston University's Day of the Devs. If you're in the Boston area, hope to catch you there!
+			</p>
+		</div>
+		<div class='wrap suggested'>	
+			<div class='article-list-item'>
+				<h3>"This is a suggested article."</h3>
+				<p class='small'>
+					<a href=''>By Mark Zhang</a>
+				</p>
+				<h3>"This is another suggested article."</h3>
+				<p class='small'>
+					<a href=''>By Mark Zhang</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
